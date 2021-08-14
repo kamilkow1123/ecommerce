@@ -1,9 +1,15 @@
 import { ActionType } from "../actions/types";
 
+export interface IProduct {
+    name: string;
+    price: number;
+    categories: string[];
+}
+
 const INITIAL_STATE = {
-    listOfProducts: [],
-    numOfProducts: 0,
-    currentPost: null,
+    listOfProducts: [] as IProduct[],
+    numOfProducts: 0 as number,
+    currentPost: null as IProduct | null,
 };
 
 const productsReducer = (state = INITIAL_STATE, action: any) => {
