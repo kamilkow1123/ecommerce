@@ -1,8 +1,9 @@
+import { Action } from "../actions";
 import { ActionType } from "../actions/types";
 
 export interface IProduct {
-    name: string;
-    price: number;
+    product_name: string;
+    product_price: number;
     categories: string[];
 }
 
@@ -12,7 +13,7 @@ const INITIAL_STATE = {
     currentPost: null as IProduct | null,
 };
 
-const productsReducer = (state = INITIAL_STATE, action: any) => {
+const productsReducer = (state = INITIAL_STATE, action: Action) => {
     switch (action.type) {
         case ActionType.FETCH_PRODUCTS:
             return {

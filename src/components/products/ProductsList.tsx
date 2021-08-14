@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../state/actions/products";
 //types
 import { State } from "../../state/reducers";
+import { IProduct } from "../../state/reducers/productsReducer";
 
 const ProductsList = () => {
     const dispatch = useDispatch();
@@ -14,12 +15,10 @@ const ProductsList = () => {
         dispatch(fetchProducts(1));
     }, []);
 
-    console.log(products);
-
     return (
         <div>
             <h1>List</h1>
-            {products.map((product: any, index: number) => {
+            {products.map((product: IProduct, index: number) => {
                 return (
                     <div key={index}>
                         <p>{product.product_name}</p>
