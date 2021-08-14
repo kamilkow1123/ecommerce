@@ -8,7 +8,7 @@ export const fetchProducts = (page: number) => async (dispatch: Dispatch) => {
 
     try {
         const response = await resultsAPI.get(`/product/list?page=${page}`);
-        console.log(response.data);
+        // console.log(response.data);
 
         dispatch({ type: ActionType.FETCH_PRODUCTS, payload: response.data });
     } catch (err) {
