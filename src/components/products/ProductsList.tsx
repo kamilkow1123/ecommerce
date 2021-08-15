@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import _ from "lodash";
+//action creators
 import { fetchProducts } from "../../state/actions/products";
 //types
 import { State } from "../../state/reducers";
@@ -12,25 +14,61 @@ const ProductsList = () => {
     const products = useSelector(
         (state: State) => state.products.listOfProducts
     );
+    const numOfProducts = useSelector(
+        (state: State) => state.products.numOfProducts
+    );
+    const numOfPages = Math.ceil(numOfProducts / 12);
 
     useEffect(
         () => {
             dispatch(fetchProducts(page));
         },
-        [ page ]
+        [ dispatch, page ]
     );
+
+    const renderProducts = () => {
+        return products.map((product: IProduct, index: number) => {
+            return (
+                <div key={index}>
+                    <p>{product.product_name}</p>
+                    <p>{product.product_price}</p>
+                </div>
+            );
+        });
+    };
+
+    const renderPageNav = () => {
+        return _.times(numOfPages, index => (
+            <Link to={`/${index + 1}`} className="postlist__page" key={index}>
+                {index + 1}
+            </Link>
+        ));
+    };
 
     return (
         <div>
             <h1>List</h1>
-            {products.map((product: IProduct, index: number) => {
-                return (
-                    <div key={index}>
-                        <p>{product.product_name}</p>
-                        <p>{product.product_price}</p>
-                    </div>
-                );
-            })}
+            {renderProducts()}
+            <Link
+                to={`/${parseInt(page) - 1}`}
+                style={{
+                    visibility: `${parseInt(page) > 1 ? "visible" : "hidden"}`,
+                }}
+            >
+                Previous Page
+            </Link>
+            {renderPageNav()}
+            <Link
+                to={`/${page ? parseInt(page) + 1 : 2}`}
+                style={{
+                    visibility: `${parseInt(page) < numOfPages ||
+                    (!page && numOfPages !== 1)
+                        ? "visible"
+                        : "hidden"}`,
+                }}
+            >
+                Next Page
+            </Link>
         </div>
     );
 };
