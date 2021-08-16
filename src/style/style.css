@@ -28,7 +28,7 @@
 .nav__item {
   font-size: 1.2rem;
   text-decoration: none;
-  color: #000;
+  color: #00171f;
 }
 
 * {
@@ -36,5 +36,7 @@
           box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #00171f;
 }
 /*# sourceMappingURL=style.css.map */
