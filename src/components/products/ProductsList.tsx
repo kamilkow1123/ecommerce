@@ -29,47 +29,60 @@ const ProductsList = () => {
     const renderProducts = () => {
         return products.map((product: IProduct) => {
             return (
-                <div key={product.id}>
-                    <Link to={`/product/${product.id}`}>
-                        {product.product_name}
-                    </Link>
-                    <p>{product.product_price}</p>
-                </div>
+                <Link
+                    to={`/product/${product.id}`}
+                    key={product.id}
+                    className="products__item"
+                >
+                    <div className="products__img" />
+                    <p className="products__name">{product.product_name}</p>
+                    <p className="products__price">${product.product_price}</p>
+                </Link>
             );
         });
     };
 
     const renderPageNav = () => {
         return _.times(numOfPages, index => (
-            <Link to={`/${index + 1}`} key={index}>
+            <Link
+                to={`/${index + 1}`}
+                key={index}
+                className="products__pages__page"
+            >
                 {index + 1}
             </Link>
         ));
     };
 
     return (
-        <div>
-            {renderProducts()}
-            <Link
-                to={`/${parseInt(page) - 1}`}
-                style={{
-                    visibility: `${parseInt(page) > 1 ? "visible" : "hidden"}`,
-                }}
-            >
-                Previous Page
-            </Link>
-            {renderPageNav()}
-            <Link
-                to={`/${page ? parseInt(page) + 1 : 2}`}
-                style={{
-                    visibility: `${parseInt(page) < numOfPages ||
-                    (!page && numOfPages !== 1)
-                        ? "visible"
-                        : "hidden"}`,
-                }}
-            >
-                Next Page
-            </Link>
+        <div className="products">
+            <div className="products__wrapper">{renderProducts()}</div>
+            <div className="products__pages">
+                <Link
+                    to={`/${parseInt(page) - 1}`}
+                    style={{
+                        visibility: `${parseInt(page) > 1
+                            ? "visible"
+                            : "hidden"}`,
+                    }}
+                    className="products__pages__button"
+                >
+                    Previous Page
+                </Link>
+                {renderPageNav()}
+                <Link
+                    to={`/${page ? parseInt(page) + 1 : 2}`}
+                    style={{
+                        visibility: `${parseInt(page) < numOfPages ||
+                        (!page && numOfPages !== 1)
+                            ? "visible"
+                            : "hidden"}`,
+                    }}
+                    className="products__pages__button"
+                >
+                    Next Page
+                </Link>
+            </div>
         </div>
     );
 };
