@@ -49,7 +49,6 @@ const ProductsList = () => {
 
     return (
         <div>
-            <h1>List</h1>
             {renderProducts()}
             <Link
                 to={`/${parseInt(page) - 1}`}
