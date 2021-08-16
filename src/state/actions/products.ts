@@ -18,3 +18,16 @@ export const fetchProducts = (page: string) => async (
         console.log(err);
     }
 };
+
+export const fetchProduct = (id: string) => async (
+    dispatch: Dispatch<Action>
+) => {
+    try {
+        const response = await resultsAPI.get(`/product/${id}`);
+        // console.log(response.data);
+
+        dispatch({ type: ActionType.FETCH_PRODUCT, payload: response.data });
+    } catch (err) {
+        console.log(err);
+    }
+};

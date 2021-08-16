@@ -3,14 +3,19 @@ import { ActionType } from "../actions/types";
 
 export interface IProduct {
     product_name: string;
-    product_price: number;
+    product_price: string;
     categories: string[];
+    accession_number?: string;
+    availability?: number;
+    detail_description?: string;
+    product_condition?: string;
+    shipping_cost?: string;
 }
 
 const INITIAL_STATE = {
     listOfProducts: [] as IProduct[],
     numOfProducts: 0 as number,
-    currentPost: null as IProduct | null,
+    currentProduct: null as IProduct | null,
 };
 
 const productsReducer = (state = INITIAL_STATE, action: Action) => {
@@ -20,6 +25,11 @@ const productsReducer = (state = INITIAL_STATE, action: Action) => {
                 ...state,
                 listOfProducts: action.payload.results,
                 numOfProducts: action.payload.count,
+            };
+        case ActionType.FETCH_PRODUCT:
+            return {
+                ...state,
+                currentProduct: action.payload,
             };
         default:
             return state;

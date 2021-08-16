@@ -1,3 +1,4 @@
 export enum ActionType {
     FETCH_PRODUCTS = "FETCH_PRODUCTS",
+    FETCH_PRODUCT = "FETCH_PRODUCT",
 }

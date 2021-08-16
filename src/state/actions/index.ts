@@ -10,4 +10,9 @@ interface fetchProductsAction {
     };
 }
 
-export type Action = fetchProductsAction;
+interface fetchProductAction {
+    type: ActionType.FETCH_PRODUCT;
+    payload: IProduct;
+}
+
+export type Action = fetchProductsAction | fetchProductAction;
