@@ -1,0 +1,51 @@
+.product {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        margin: 0 20px;
+        width: 100%;
+        max-width: 1300px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+
+        @include desktop {
+            flex-direction: row;
+        }
+    }
+
+    &__images {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        @include desktop {
+            justify-content: flex-start;
+        }
+    }
+
+    &__img {
+        height: 450px;
+        width: 100%;
+        flex-grow: 1;
+        flex-basis: 320px;
+        background: $clr-primary-800;
+    }
+
+    &__info {
+        flex-shrink: 3;
+    }
+
+    &__price {
+        margin: 1rem 0;
+        color: $clr-primary-400;
+    }
+
+    &__description {
+        text-align: justify;
+    }
+}

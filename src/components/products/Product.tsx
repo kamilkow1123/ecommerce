@@ -24,9 +24,27 @@ const Product = () => {
     return !product ? null : (
         <div>
             <Navbar />
-            <h1>{product.product_name}</h1>
-            <p>{product.product_price}</p>
-            <p>{product.detail_description}</p>
+            <div className="product">
+                <div className="product__container">
+                    <div className="product__images">
+                        <div className="product__img" />
+                        <div className="product__img" />
+                        <div className="product__img" />
+                        <div className="product__img" />
+                    </div>
+                    <div className="product__info">
+                        <h1 className="product__name">
+                            {product.product_name}
+                        </h1>
+                        <p className="product__price">
+                            ${product.product_price}
+                        </p>
+                        <p className="product__description">
+                            {product.detail_description}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
