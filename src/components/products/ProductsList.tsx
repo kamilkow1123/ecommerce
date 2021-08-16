@@ -30,7 +30,7 @@ const ProductsList = () => {
         return products.map((product: IProduct, index: number) => {
             return (
                 <div key={index}>
-                    <p>{product.product_name}</p>
+                    <Link to={`/product/${index}`}>{product.product_name}</Link>
                     <p>{product.product_price}</p>
                 </div>
             );
@@ -39,7 +39,7 @@ const ProductsList = () => {
 
     const renderPageNav = () => {
         return _.times(numOfPages, index => (
-            <Link to={`/${index + 1}`} className="postlist__page" key={index}>
+            <Link to={`/${index + 1}`} key={index}>
                 {index + 1}
             </Link>
         ));
