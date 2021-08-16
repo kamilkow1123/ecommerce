@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { fetchProduct } from "../../state/actions/products";
 //types
 import { State } from "../../state/reducers";
+import Navbar from "../navigation/Navbar";
 
 const Product = () => {
     const { id } = useParams<{ id: string }>();
@@ -22,6 +23,7 @@ const Product = () => {
 
     return !product ? null : (
         <div>
+            <Navbar />
             <h1>{product.product_name}</h1>
             <p>{product.product_price}</p>
             <p>{product.detail_description}</p>
