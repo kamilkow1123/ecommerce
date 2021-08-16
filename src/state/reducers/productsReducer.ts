@@ -2,6 +2,7 @@ import { Action } from "../actions";
 import { ActionType } from "../actions/types";
 
 export interface IProduct {
+    id: number;
     product_name: string;
     product_price: string;
     categories: string[];

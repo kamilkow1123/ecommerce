@@ -27,10 +27,12 @@ const ProductsList = () => {
     );
 
     const renderProducts = () => {
-        return products.map((product: IProduct, index: number) => {
+        return products.map((product: IProduct) => {
             return (
-                <div key={index}>
-                    <Link to={`/product/${index}`}>{product.product_name}</Link>
+                <div key={product.id}>
+                    <Link to={`/product/${product.id}`}>
+                        {product.product_name}
+                    </Link>
                     <p>{product.product_price}</p>
                 </div>
             );
