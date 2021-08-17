@@ -15,7 +15,7 @@ export const loadUser = () => async (
 
     try {
         const response = await resultsAPI.get(
-            "auth/users/me/",
+            "/auth/users/me/",
             tokenConfig(getState)
         );
 
@@ -34,7 +34,7 @@ export const loadUser = () => async (
 };
 
 //login user
-export const login = (username: string, password: string) => async (
+export const login = (email: string, password: string) => async (
     dispatch: Dispatch<Action>
 ) => {
     //headers
@@ -45,11 +45,13 @@ export const login = (username: string, password: string) => async (
     };
 
     //Request body
-    const body = JSON.stringify({ username, password });
+    const body = JSON.stringify({ email, password });
+
+    console.log(body);
 
     try {
         const response = await resultsAPI.post(
-            "auth/token/login/",
+            "/auth/token/login/",
             body,
             config
         );
@@ -81,7 +83,7 @@ export const signUp = (details: any) => async (dispatch: Dispatch<Action>) => {
     const body = JSON.stringify(details);
 
     try {
-        await resultsAPI.post("auth/users/", body, config);
+        await resultsAPI.post("/auth/users/", body, config);
 
         dispatch({
             type: ActionType.SIGNUP_SUCCESS,
@@ -102,7 +104,7 @@ export const logout = () => async (
     getState: () => State
 ) => {
     try {
-        await resultsAPI.post("token/logout/", null, tokenConfig(getState));
+        await resultsAPI.post("/token/logout/", null, tokenConfig(getState));
 
         dispatch({
             type: ActionType.LOGOUT_SUCCESS,

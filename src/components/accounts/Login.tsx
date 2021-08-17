@@ -24,13 +24,13 @@ const Login = () => {
     );
 
     const Login = ({
-        username,
+        email,
         password,
     }: {
-        username: string;
+        email: string;
         password: string;
     }) => {
-        dispatch(login(username, password));
+        dispatch(login(email, password));
     };
 
     return (

@@ -2,19 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 type Props = {
-    Login: (details: { username: string; password: string }) => void;
+    Login: (details: { email: string; password: string }) => void;
     error: string;
 };
 
 const LoginForm: React.FC<Props> = ({ Login, error }) => {
     const [ details, setDetails ] = useState<{
-        username: string;
+        email: string;
         password: string;
-    }>({ username: "", password: "" });
+    }>({ email: "", password: "" });
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
-
         Login(details);
     };
 
@@ -27,17 +26,17 @@ const LoginForm: React.FC<Props> = ({ Login, error }) => {
                 ""
             )}
             <div className="form__group">
-                <label className="form__group__label" htmlFor="form-username">
-                    Username
+                <label className="form__group__label" htmlFor="form-email">
+                    E-mail
                 </label>
                 <input
                     className="form__group__input"
                     type="text"
-                    name="username"
-                    id="username"
+                    name="email"
+                    id="email"
                     onChange={e =>
-                        setDetails({ ...details, username: e.target.value })}
-                    value={details.username}
+                        setDetails({ ...details, email: e.target.value })}
+                    value={details.email}
                 />
             </div>
             <div className="form__group">

@@ -1,11 +1,20 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 //components
 import Home from "./components/Home";
 import Product from "./components/products/Product";
 import Login from "./components/accounts/Login";
 import SignUp from "./components/accounts/SignUp";
+import { loadUser } from "./state/actions/auth";
 
-function App() {
+const App = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadUser());
+    });
+
     return (
         <Router>
             <Switch>
@@ -17,6 +26,6 @@ function App() {
             </Switch>
         </Router>
     );
-}
+};
 
 export default App;
