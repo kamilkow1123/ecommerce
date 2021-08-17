@@ -4,6 +4,7 @@ import { Dispatch } from "redux";
 import { Action } from ".";
 import { State } from "../reducers";
 import history from "../../history";
+import { IDetails } from "../../components/accounts/SignUpForm";
 
 //check token & load user
 export const loadUser = () => async (
@@ -19,7 +20,7 @@ export const loadUser = () => async (
             tokenConfig(getState)
         );
 
-        // console.log(response);
+        console.log(response);
 
         dispatch({
             type: ActionType.USER_LOADED,
@@ -69,7 +70,9 @@ export const login = (email: string, password: string) => async (
 };
 
 //signUp user
-export const signUp = (details: any) => async (dispatch: Dispatch<Action>) => {
+export const signUp = (details: IDetails) => async (
+    dispatch: Dispatch<Action>
+) => {
     //headers
     const config = {
         headers: {

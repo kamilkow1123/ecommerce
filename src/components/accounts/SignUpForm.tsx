@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+export interface IDetails {
+    email: string;
+    first_name: string;
+    last_name: string;
+    phone: string;
+    password: string;
+    re_password: string;
+}
+
 type Props = {
-    SignUp: (details: any) => void;
-    errors: any;
+    SignUp: (details: IDetails) => void;
+    errors: { [key: string]: string };
 };
 
 const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
-    const [ details, setDetails ] = useState<{
-        email: string;
-        first_name: string;
-        last_name: string;
-        phone: string;
-        password: string;
-        re_password: string;
-    }>({
+    const [ details, setDetails ] = useState<IDetails>({
         email: "",
         first_name: "",
         last_name: "",

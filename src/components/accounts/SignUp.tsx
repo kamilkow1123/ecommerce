@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SignUpForm from "./SignUpForm";
+import SignUpForm, { IDetails } from "./SignUpForm";
 import { Link, Redirect } from "react-router-dom";
 import { signUp } from "../../state/actions/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ const SignUp = () => {
     useEffect(
         () => {
             if (errorMessage !== "") {
-                let tempErrors: any = {};
+                let tempErrors: { [key: string]: string } = {};
 
                 for (let newError in errorMessage) {
                     if (newError === "non_field_errors") {
@@ -32,7 +32,7 @@ const SignUp = () => {
         [ errorMessage ]
     );
 
-    const SignUp = (details: any) => {
+    const SignUp = (details: IDetails) => {
         dispatch(signUp(details));
     };
 
