@@ -34,7 +34,12 @@ const ProductsList = () => {
                     key={product.id}
                     className="products__item"
                 >
-                    <div className="products__img" />
+                    {/* <div className="products__img" /> */}
+                    <img
+                        src={product.image_url}
+                        className="products__img"
+                        alt="product"
+                    />
                     <p className="products__name">{product.product_name}</p>
                     <p className="products__price">${product.product_price}</p>
                 </Link>
