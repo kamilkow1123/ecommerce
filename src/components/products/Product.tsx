@@ -27,10 +27,14 @@ const Product = () => {
             <div className="product">
                 <div className="product__container">
                     <div className="product__images">
+                        <img src={product.image_url} className="product__img" />
+                        {/* <img src={product.image_url} className="product__img" />
+                        <img src={product.image_url} className="product__img" />
+                        <img src={product.image_url} className="product__img" /> */}
+                        {/* <div className="product__img" />
                         <div className="product__img" />
                         <div className="product__img" />
-                        <div className="product__img" />
-                        <div className="product__img" />
+                        <div className="product__img" /> */}
                     </div>
                     <div className="product__info">
                         <h1 className="product__name">
