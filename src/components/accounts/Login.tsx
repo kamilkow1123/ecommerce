@@ -30,7 +30,7 @@ const Login = () => {
         username: string;
         password: string;
     }) => {
-        login(username, password);
+        dispatch(login(username, password));
     };
 
     return (
@@ -54,3 +54,5 @@ const Login = () => {
         </div>
     );
 };
+
+export default Login;

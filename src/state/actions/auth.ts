@@ -3,7 +3,7 @@ import resultsAPI from "../../api/resultsAPI";
 import { Dispatch } from "redux";
 import { Action } from ".";
 import { State } from "../reducers";
-// import history from "../history";
+import history from "../../history";
 
 //check token & load user
 export const loadUser = () => async (
@@ -54,6 +54,8 @@ export const login = (username: string, password: string) => async (
             config
         );
 
+        // console.log(response);
+
         dispatch({
             type: ActionType.LOGIN_SUCCESS,
             payload: response.data,
@@ -84,7 +86,7 @@ export const signUp = (details: any) => async (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionType.SIGNUP_SUCCESS,
         });
-        // history.push("/login");
+        history.push("/login");
     } catch (err) {
         console.log(err.response.data);
         dispatch({
