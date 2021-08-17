@@ -36,14 +36,9 @@ const Login = () => {
     return (
         <div>
             {!isAuthenticated ? (
-                <div className="login">
-                    <Link
-                        to="/"
-                        className="login__back-button login__back-button--top"
-                    >
-                        <span>
-                            <FaArrowLeft />
-                        </span>{" "}
+                <div className="auth">
+                    <Link to="/" className="auth__back-button">
+                        <FaArrowLeft style={{ fill: "#fff" }} />
                         back
                     </Link>
                     <LoginForm Login={Login} error={error} />

@@ -18,19 +18,19 @@ const LoginForm: React.FC<Props> = ({ Login, error }) => {
     };
 
     return (
-        <form onSubmit={submitHandler} className="form">
+        <form onSubmit={submitHandler} className="auth-form">
             <h2>Login</h2>
             {error !== "" ? (
-                <div className="form__error-login">{error}</div>
+                <div className="auth-form__error-login">{error}</div>
             ) : (
                 ""
             )}
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="form-email">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="form-email">
                     E-mail
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="text"
                     name="email"
                     id="email"
@@ -39,12 +39,12 @@ const LoginForm: React.FC<Props> = ({ Login, error }) => {
                     value={details.email}
                 />
             </div>
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="password">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="password">
                     Password:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="password"
                     name="password"
                     id="password"
@@ -57,13 +57,13 @@ const LoginForm: React.FC<Props> = ({ Login, error }) => {
                 />
             </div>
             <input
-                className="form__submit-button"
+                className="auth-form__submit-button"
                 type="submit"
                 value="LOGIN"
             />
             <p>
                 Don't have an account?
-                <Link className="form__signup-button" to="/signup">
+                <Link className="auth-form__signup-button" to="/signup">
                     Sign Up
                 </Link>
             </p>
