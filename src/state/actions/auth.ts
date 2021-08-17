@@ -47,8 +47,6 @@ export const login = (email: string, password: string) => async (
     //Request body
     const body = JSON.stringify({ email, password });
 
-    console.log(body);
-
     try {
         const response = await resultsAPI.post(
             "/auth/token/login/",
@@ -104,7 +102,11 @@ export const logout = () => async (
     getState: () => State
 ) => {
     try {
-        await resultsAPI.post("/token/logout/", null, tokenConfig(getState));
+        await resultsAPI.post(
+            "/auth/token/logout/",
+            null,
+            tokenConfig(getState)
+        );
 
         dispatch({
             type: ActionType.LOGOUT_SUCCESS,

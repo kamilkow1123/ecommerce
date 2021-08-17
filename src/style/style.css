@@ -35,7 +35,11 @@
 .nav__item {
   font-size: 1.2rem;
   text-decoration: none;
+  border: none;
+  outline: none;
+  background: none;
   color: #00171f;
+  cursor: pointer;
 }
 
 .products {
