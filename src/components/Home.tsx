@@ -7,7 +7,7 @@ import ProductsList from "./products/ProductsList";
 
 const Home = () => {
     const dispatch = useDispatch();
-    const user = useSelector((state: State) => state.auth.user);
+    const user = useSelector((state: State) => state.auth["user"]);
 
     useEffect(() => {
         if (!user) {

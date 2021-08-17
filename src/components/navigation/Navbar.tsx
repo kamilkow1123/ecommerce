@@ -8,7 +8,7 @@ import { logout } from "../../state/actions/auth";
 const Navbar = () => {
     const dispatch = useDispatch();
     const isAuthenticated = useSelector(
-        (state: State) => state.auth.isAuthenticated
+        (state: State) => state.auth["isAuthenticated"]
     );
 
     const handleLogout = () => {

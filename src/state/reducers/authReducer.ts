@@ -1,11 +1,19 @@
 import { Action } from "../actions";
 import { ActionType } from "../actions/types";
 
+export interface IUser {
+    first_name: string;
+    last_name: string;
+    phone: string;
+    id: number;
+    email: string;
+}
+
 const INITIAL_STATE = {
-    auth_token: localStorage.getItem("auth_token"),
+    auth_token: localStorage.getItem("auth_token") as string,
     isAuthenticated: false as boolean,
     isLoading: false as boolean,
-    user: null,
+    user: null as IUser | null,
     error: "" as string | string[],
 };
 
@@ -25,7 +33,8 @@ const authReducer = (state = INITIAL_STATE, action: Action) => {
                 error: "",
             };
         case ActionType.LOGIN_SUCCESS:
-            localStorage.setItem("auth_token", action.payload.auth_token);
+            if (action.payload)
+                localStorage.setItem("auth_token", action.payload.auth_token);
             return {
                 ...state,
                 ...action.payload,

@@ -8,9 +8,9 @@ import { State } from "../../state/reducers";
 
 const Login = () => {
     const dispatch = useDispatch();
-    const errorMessage = useSelector((state: State) => state.auth.error);
+    const errorMessage = useSelector((state: State) => state.auth["error"]);
     const isAuthenticated = useSelector(
-        (state: State) => state.auth.isAuthenticated
+        (state: State) => state.auth["isAuthenticated"]
     );
     const [ error, setError ] = useState("");
 

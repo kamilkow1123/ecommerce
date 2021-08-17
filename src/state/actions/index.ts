@@ -1,3 +1,5 @@
+import { IErrorMessage } from "../../components/accounts/SignUp";
+import { IUser } from "../reducers/authReducer";
 import { IProduct } from "../reducers/productsReducer";
 import { ActionType } from "./types";
 
@@ -20,17 +22,19 @@ interface loadUserAction {
         | ActionType.USER_LOADING
         | ActionType.USER_LOADED
         | ActionType.AUTH_ERROR;
-    payload?: any;
+    payload?: IUser;
 }
 
 interface loginAction {
     type: ActionType.LOGIN_SUCCESS | ActionType.LOGIN_FAIL;
-    payload?: any;
+    payload?: {
+        auth_token: string;
+    };
 }
 
 interface signUpAction {
     type: ActionType.SIGNUP_SUCCESS | ActionType.SIGNUP_FAIL;
-    payload?: any;
+    payload?: IErrorMessage;
 }
 
 interface logoutAction {

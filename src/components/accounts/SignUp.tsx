@@ -6,24 +6,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaArrowLeft } from "react-icons/fa";
 import { State } from "../../state/reducers";
 
+export interface IErrorMessage {
+    email?: string[];
+    first_name?: string[];
+    last_name?: string[];
+    password?: string[];
+    re_password?: string[];
+    non_field_errors?: string[];
+}
+
 const SignUp = () => {
     const dispatch = useDispatch();
-    const errorMessage = useSelector((state: State) => state.auth.error);
+    const errorMessage: IErrorMessage = useSelector(
+        (state: State) => state.auth["error"]
+    );
     const isAuthenticated = useSelector(
-        (state: State) => state.auth.isAuthenticated
+        (state: State) => state.auth["isAuthenticated"]
     );
     const [ errors, setErrors ] = useState({});
 
     useEffect(
         () => {
             if (errorMessage !== "") {
-                let tempErrors: { [key: string]: string } = {};
-
+                let tempErrors: { [key: string]: string[] } = {};
                 for (let newError in errorMessage) {
                     if (newError === "non_field_errors") {
-                        tempErrors["re_password"] = errorMessage[newError];
+                        tempErrors["re_password"] = errorMessage[newError] ?? [''];
                     } else {
-                        tempErrors[newError] = errorMessage[newError];
+                        tempErrors[newError as keyof IErrorMessage] = errorMessage[newError as keyof IErrorMessage] ?? [''];
                     }
                 }
                 setErrors(tempErrors);

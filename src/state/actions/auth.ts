@@ -20,7 +20,7 @@ export const loadUser = () => async (
             tokenConfig(getState)
         );
 
-        console.log(response);
+        // console.log(response);
 
         dispatch({
             type: ActionType.USER_LOADED,
@@ -55,7 +55,7 @@ export const login = (email: string, password: string) => async (
             config
         );
 
-        // console.log(response);
+        console.log(response.data);
 
         dispatch({
             type: ActionType.LOGIN_SUCCESS,
@@ -122,7 +122,7 @@ export const logout = () => async (
 //setup config with token - helper function
 export const tokenConfig = (getState: () => State) => {
     //get token from state
-    const token = getState().auth.auth_token;
+    const token = getState().auth["auth_token"];
 
     //headers
     const config: { headers: { [key: string]: string } } = {
