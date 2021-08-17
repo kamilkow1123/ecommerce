@@ -31,15 +31,15 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
     };
 
     return (
-        <form onSubmit={submitHandler} className="form">
-            <h2>SignUp</h2>
+        <form onSubmit={submitHandler} className="auth-form">
+            <h2>Sign Up</h2>
 
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="email">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="email">
                     Email:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="email"
                     name="email"
                     id="email"
@@ -48,15 +48,15 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
                     value={details.email}
                 />
                 {errors.email && (
-                    <p className="form__error-SignUp">{errors.email}</p>
+                    <p className="auth-form__error-signup">{errors.email}</p>
                 )}
             </div>
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="first_name">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="first_name">
                     First Name:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="text"
                     name="first_name"
                     id="first_name"
@@ -68,15 +68,17 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
                     value={details.first_name}
                 />
                 {errors.first_name && (
-                    <p className="form__error-SignUp">{errors.first_name}</p>
+                    <p className="auth-form__error-signup">
+                        {errors.first_name}
+                    </p>
                 )}
             </div>
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="last_name">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="last_name">
                     Last Name:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="text"
                     name="last_name"
                     id="last_name"
@@ -88,15 +90,17 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
                     value={details.last_name}
                 />
                 {errors.last_name && (
-                    <p className="form__error-SignUp">{errors.last_name}</p>
+                    <p className="auth-form__error-signup">
+                        {errors.last_name}
+                    </p>
                 )}
             </div>
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="phone">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="phone">
                     Phone number:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="tel"
                     name="phone"
                     id="phone"
@@ -105,15 +109,15 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
                     value={details.phone}
                 />
                 {errors.phone && (
-                    <p className="form__error-SignUp">{errors.phone}</p>
+                    <p className="auth-form__error-signup">{errors.phone}</p>
                 )}
             </div>
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="password">
+            <div className="auth-form__group">
+                <label className="auth-form__group__label" htmlFor="password">
                     Password:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="password"
                     name="password"
                     id="password"
@@ -125,15 +129,18 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
                     value={details.password}
                 />
                 {errors.password && (
-                    <p className="form__error-SignUp">{errors.password}</p>
+                    <p className="auth-form__error-signup">{errors.password}</p>
                 )}
             </div>
-            <div className="form__group">
-                <label className="form__group__label" htmlFor="re_password">
+            <div className="auth-form__group">
+                <label
+                    className="auth-form__group__label"
+                    htmlFor="re_password"
+                >
                     Confirm Password:
                 </label>
                 <input
-                    className="form__group__input"
+                    className="auth-form__group__input"
                     type="password"
                     name="re_password"
                     id="re_password"
@@ -145,17 +152,19 @@ const SignUpForm: React.FC<Props> = ({ SignUp, errors }) => {
                     value={details.re_password}
                 />
                 {errors.re_password && (
-                    <p className="form__error-SignUp">{errors.re_password}</p>
+                    <p className="auth-form__error-signup">
+                        {errors.re_password}
+                    </p>
                 )}
             </div>
             <input
                 type="submit"
-                value="SignUp"
-                className="form__submit-button"
+                value="SIGN UP"
+                className="auth-form__submit-button"
             />
             <p>
                 Already have an account?
-                <Link className="form__SignUp-button" to="/login">
+                <Link className="auth-form__signup-button" to="/login">
                     Login
                 </Link>
             </p>
