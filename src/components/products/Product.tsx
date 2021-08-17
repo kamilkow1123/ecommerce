@@ -27,7 +27,11 @@ const Product = () => {
             <div className="product">
                 <div className="product__container">
                     <div className="product__images">
-                        <img src={product.image_url} className="product__img" />
+                        <img
+                            src={product.image_url}
+                            className="product__img"
+                            alt="product"
+                        />
                         {/* <img src={product.image_url} className="product__img" />
                         <img src={product.image_url} className="product__img" />
                         <img src={product.image_url} className="product__img" /> */}

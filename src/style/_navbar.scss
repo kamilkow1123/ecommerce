@@ -14,6 +14,11 @@
         align-items: center;
     }
 
+    &__items {
+        display: flex;
+        gap: 2rem;
+    }
+
     &__item {
         font-size: 1.2rem;
         text-decoration: none;
