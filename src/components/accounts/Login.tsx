@@ -37,7 +37,10 @@ const Login = () => {
         <div>
             {!isAuthenticated ? (
                 <div className="auth">
-                    <Link to="/" className="auth__back-button">
+                    <Link
+                        to="/"
+                        className="auth__back-button auth__back-button--top"
+                    >
                         <FaArrowLeft style={{ fill: "#fff" }} />
                         back
                     </Link>
