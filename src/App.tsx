@@ -7,6 +7,7 @@ import Product from "./components/products/Product";
 import Login from "./components/accounts/Login";
 import SignUp from "./components/accounts/SignUp";
 import { loadUser } from "./state/actions/auth";
+import Cart from "./components/cart/Cart";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const App = () => {
                 <Route exact path="/product/:id" component={Product} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/cart" component={Cart} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/:page" component={Home} />
             </Switch>
