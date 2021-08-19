@@ -45,11 +45,25 @@
     }
 
     &__price {
-        margin: 1rem 0;
+        margin: 2rem 0;
         color: $clr-primary-400;
+        font-size: 1.5rem;
+    }
+
+    &__button {
+        background: $clr-primary-800;
+        border: none;
+        outline: none;
+        width: 100%;
+        color: $clr-light;
+        padding: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        border-radius: 50px;
     }
 
     &__description {
         text-align: justify;
+        line-height: 1.8;
     }
 }
