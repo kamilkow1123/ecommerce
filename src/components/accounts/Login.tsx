@@ -39,7 +39,7 @@ const Login = () => {
                 <div className="auth">
                     <Link
                         to="/"
-                        className="auth__back-button auth__back-button--top"
+                        className="auth__back-button auth__back-button--login"
                     >
                         <FaArrowLeft style={{ fill: "#fff" }} />
                         back

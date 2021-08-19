@@ -213,9 +213,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -224,7 +224,8 @@
 .auth__back-button {
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin: 50px;
+  margin: 20px;
+  margin-top: 50px;
   color: #ffffff;
   text-decoration: none;
   font-size: 1.3rem;
@@ -240,10 +241,14 @@
   transition: all 0.4s ease-in-out;
 }
 
-.auth__back-button--top {
-  position: absolute;
-  top: 50px;
-  left: 10vw;
+@media (min-width: 768px) {
+  .auth__back-button {
+    margin-left: 10vw;
+  }
+}
+
+.auth__back-button--login {
+  margin-bottom: 10vh;
 }
 
 .auth__back-button:hover {
@@ -252,6 +257,11 @@
 }
 
 .auth-form {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   background: #ffffff;
   padding: 3rem 2rem;
   margin: 20px;
