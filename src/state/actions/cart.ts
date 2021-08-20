@@ -28,7 +28,6 @@ export const addToCart = (id: number) => async (
     getState: () => State
 ) => {
     try {
-        console.log(tokenConfig(getState));
         const response = await resultsAPI.post(
             `/cart/cartitem/${id}/`,
             null,
@@ -39,6 +38,7 @@ export const addToCart = (id: number) => async (
 
         dispatch({
             type: ActionType.ADD_TO_CART,
+            payload: response.data,
         });
     } catch (err) {
         console.log(err);

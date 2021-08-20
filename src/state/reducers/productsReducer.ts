@@ -5,8 +5,8 @@ export interface IProduct {
     id: number;
     product_name: string;
     product_price: string;
-    categories: string[];
     image_url: string;
+    categories?: string[];
     accession_number?: string;
     availability?: number;
     detail_description?: string;
