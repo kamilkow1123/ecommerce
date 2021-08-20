@@ -3,7 +3,13 @@ import { ActionType } from "../actions/types";
 import { IProduct } from "./productsReducer";
 
 const INITIAL_STATE = {
-    listOfCartProducts: [] as IProduct[],
+    listOfCartProducts: [] as
+        | {
+              id: number;
+              product: IProduct;
+              quantity: number;
+          }[]
+        | any[],
     totalCartPrice: 0 as number,
     numOfCartProducts: 0 as number,
 };
