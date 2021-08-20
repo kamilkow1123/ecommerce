@@ -43,12 +43,19 @@ interface logoutAction {
 
 interface fetchCartProductsAction {
     type: ActionType.FETCH_CART_PRODUCTS;
-    payload: any;
+    payload: {
+        products: IProduct[];
+        get_cart_total: number;
+        get_products_quantity: number;
+    };
 }
 
 interface addToCartAction {
     type: ActionType.ADD_TO_CART;
-    payload?: any;
+    payload: {
+        get_cart_total: number;
+        get_products_quantity: number;
+    };
 }
 
 interface deleteFromCartAction {
