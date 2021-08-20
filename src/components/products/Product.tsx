@@ -21,6 +21,10 @@ const Product = () => {
         [ dispatch, id ]
     );
 
+    const handleAddToCart = (id: number) => {
+        console.log(id);
+    };
+
     return !product ? null : (
         <div>
             <Navbar />
@@ -47,7 +51,12 @@ const Product = () => {
                         <p className="product__price">
                             ${product.product_price}
                         </p>
-                        <button className="product__button">Add to Cart</button>
+                        <button
+                            onClick={() => handleAddToCart(product.id)}
+                            className="product__button"
+                        >
+                            Add to Cart
+                        </button>
                         <p className="product__description">
                             {product.detail_description}
                         </p>

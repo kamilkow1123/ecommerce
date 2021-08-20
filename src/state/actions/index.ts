@@ -41,10 +41,28 @@ interface logoutAction {
     type: ActionType.LOGOUT_SUCCESS;
 }
 
+interface fetchCartProductsAction {
+    type: ActionType.FETCH_CART_PRODUCTS;
+    payload: any;
+}
+
+interface addToCartAction {
+    type: ActionType.ADD_TO_CART;
+    payload: any;
+}
+
+interface deleteFromCartAction {
+    type: ActionType.DELETE_FROM_CART;
+    payload: any;
+}
+
 export type Action =
     | fetchProductsAction
     | fetchProductAction
     | loadUserAction
     | loginAction
     | signUpAction
-    | logoutAction;
+    | logoutAction
+    | fetchCartProductsAction
+    | addToCartAction
+    | deleteFromCartAction;
