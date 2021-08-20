@@ -55,7 +55,7 @@ export const login = (email: string, password: string) => async (
             config
         );
 
-        console.log(response.data);
+        // console.log(response.data);
 
         dispatch({
             type: ActionType.LOGIN_SUCCESS,

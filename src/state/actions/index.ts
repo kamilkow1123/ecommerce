@@ -41,10 +41,35 @@ interface logoutAction {
     type: ActionType.LOGOUT_SUCCESS;
 }
 
+interface fetchCartProductsAction {
+    type: ActionType.FETCH_CART_PRODUCTS;
+    payload: {
+        products: IProduct[];
+        get_cart_total: number;
+        get_products_quantity: number;
+    };
+}
+
+interface addToCartAction {
+    type: ActionType.ADD_TO_CART;
+    payload: {
+        get_cart_total: number;
+        get_products_quantity: number;
+    };
+}
+
+interface deleteFromCartAction {
+    type: ActionType.DELETE_FROM_CART;
+    payload?: any;
+}
+
 export type Action =
     | fetchProductsAction
     | fetchProductAction
     | loadUserAction
     | loginAction
     | signUpAction
-    | logoutAction;
+    | logoutAction
+    | fetchCartProductsAction
+    | addToCartAction
+    | deleteFromCartAction;

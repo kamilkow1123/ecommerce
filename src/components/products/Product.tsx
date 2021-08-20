@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addToCart } from "../../state/actions/cart";
 //action creators
 import { fetchProduct } from "../../state/actions/products";
 //types
@@ -20,6 +21,10 @@ const Product = () => {
         },
         [ dispatch, id ]
     );
+
+    const handleAddToCart = (id: number) => {
+        dispatch(addToCart(id));
+    };
 
     return !product ? null : (
         <div>
@@ -47,7 +52,12 @@ const Product = () => {
                         <p className="product__price">
                             ${product.product_price}
                         </p>
-                        <button className="product__button">Add to Cart</button>
+                        <button
+                            onClick={() => handleAddToCart(product.id)}
+                            className="product__button"
+                        >
+                            Add to Cart
+                        </button>
                         <p className="product__description">
                             {product.detail_description}
                         </p>

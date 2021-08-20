@@ -163,19 +163,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 1rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 @media (min-width: 992px) {
   .product__images {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    display: initial;
   }
 }
 
@@ -209,6 +201,14 @@
   font-size: 1.1rem;
   margin-bottom: 2rem;
   border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.product__button:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
 }
 
 .product__description {
