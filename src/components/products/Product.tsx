@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addToCart } from "../../state/actions/cart";
 //action creators
 import { fetchProduct } from "../../state/actions/products";
 //types
@@ -22,7 +23,7 @@ const Product = () => {
     );
 
     const handleAddToCart = (id: number) => {
-        console.log(id);
+        dispatch(addToCart(id));
     };
 
     return !product ? null : (

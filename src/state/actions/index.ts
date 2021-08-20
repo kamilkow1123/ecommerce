@@ -48,12 +48,12 @@ interface fetchCartProductsAction {
 
 interface addToCartAction {
     type: ActionType.ADD_TO_CART;
-    payload: any;
+    payload?: any;
 }
 
 interface deleteFromCartAction {
     type: ActionType.DELETE_FROM_CART;
-    payload: any;
+    payload?: any;
 }
 
 export type Action =
