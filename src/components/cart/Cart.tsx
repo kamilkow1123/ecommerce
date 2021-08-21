@@ -19,13 +19,13 @@ const Cart = () => {
         },
         [ dispatch ]
     );
-    console.log(products);
 
     const renderProducts = () => {
         return products.map(({ product }: { product: IProduct }) => {
             return (
                 <div key={product.id}>
                     <p>{product.product_name}</p>
+                    <p>{product.product_price}</p>
                 </div>
             );
         });
