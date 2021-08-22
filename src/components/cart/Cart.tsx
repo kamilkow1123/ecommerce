@@ -15,6 +15,8 @@ const Cart = () => {
         (state: State) => state.cart.listOfCartProducts
     );
 
+    const totalCost = useSelector((state: State) => state.cart.totalCartPrice);
+
     useEffect(
         () => {
             dispatch(fetchCartProducts());
@@ -40,6 +42,7 @@ const Cart = () => {
         <div>
             <Navbar />
             <h1>Cart</h1>
+            <h2>Total: ${totalCost}</h2>
             {renderProducts()}
         </div>
     );
