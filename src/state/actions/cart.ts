@@ -44,3 +44,24 @@ export const addToCart = (id: number) => async (
         console.log(err);
     }
 };
+
+export const deleteFromCart = (id: number) => async (
+    dispatch: Dispatch<Action>,
+    getState: () => State
+) => {
+    try {
+        const response = await resultsAPI.delete(
+            `/cart/cartitem/${id}/`,
+            tokenConfig(getState)
+        );
+
+        // console.log(response);
+
+        dispatch({
+            type: ActionType.DELETE_FROM_CART,
+            payload: response.data,
+        });
+    } catch (err) {
+        console.log(err);
+    }
+};
