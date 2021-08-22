@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 //components
 import Navbar from "../navigation/Navbar";
 //action creators
-import { fetchCartProducts } from "../../state/actions/cart";
+import { deleteFromCart, fetchCartProducts } from "../../state/actions/cart";
 import { addToCart } from "../../state/actions/cart";
 //types
 import { State } from "../../state/reducers";
@@ -22,11 +22,15 @@ const Cart = () => {
         () => {
             dispatch(fetchCartProducts());
         },
-        [ dispatch, products ]
+        [ dispatch, totalCost ]
     );
 
     const handleAddProduct = (id: number) => {
         dispatch(addToCart(id));
+    };
+
+    const handleDeleteProduct = (id: number) => {
+        dispatch(deleteFromCart(id));
     };
 
     const renderProducts = () => {
@@ -35,6 +39,11 @@ const Cart = () => {
                 <div key={product.id}>
                     <p>{product.product.product_name}</p>
                     <p>{product.product.product_price}</p>
+                    <button
+                        onClick={() => handleDeleteProduct(product.product.id)}
+                    >
+                        -
+                    </button>
                     <p>{product.quantity}</p>
                     <button
                         onClick={() => handleAddProduct(product.product.id)}
