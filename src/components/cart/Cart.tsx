@@ -41,23 +41,26 @@ const Cart = () => {
                         {product.product.product_name}
                     </p>
                     <p className="cart__product__price">
-                        {product.product.product_price}
+                        ${product.product.product_price}
                     </p>
-                    <button
-                        className="cart__product__button"
-                        onClick={() => handleDeleteProduct(product.product.id)}
-                    >
-                        -
-                    </button>
-                    <p className="cart__product__quantity">
-                        {product.quantity}
-                    </p>
-                    <button
-                        className="cart__product__button"
-                        onClick={() => handleAddProduct(product.product.id)}
-                    >
-                        +
-                    </button>
+                    <div className="cart__product__buttons">
+                        <button
+                            className="cart__product__button"
+                            onClick={() =>
+                                handleDeleteProduct(product.product.id)}
+                        >
+                            -
+                        </button>
+                        <p className="cart__product__quantity">
+                            {product.quantity}
+                        </p>
+                        <button
+                            className="cart__product__button"
+                            onClick={() => handleAddProduct(product.product.id)}
+                        >
+                            +
+                        </button>
+                    </div>
                 </div>
             );
         });
