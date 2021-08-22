@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToCart } from "../../state/actions/cart";
 //action creators
 import { fetchProduct } from "../../state/actions/products";
+import { addToCart } from "../../state/actions/cart";
 //types
 import { State } from "../../state/reducers";
 import Navbar from "../navigation/Navbar";
