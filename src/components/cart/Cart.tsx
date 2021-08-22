@@ -36,16 +36,24 @@ const Cart = () => {
     const renderProducts = () => {
         return products.map(product => {
             return (
-                <div key={product.id}>
-                    <p>{product.product.product_name}</p>
-                    <p>{product.product.product_price}</p>
+                <div key={product.id} className="cart__product">
+                    <p className="cart__product__name">
+                        {product.product.product_name}
+                    </p>
+                    <p className="cart__product__price">
+                        {product.product.product_price}
+                    </p>
                     <button
+                        className="cart__product__button"
                         onClick={() => handleDeleteProduct(product.product.id)}
                     >
                         -
                     </button>
-                    <p>{product.quantity}</p>
+                    <p className="cart__product__quantity">
+                        {product.quantity}
+                    </p>
                     <button
+                        className="cart__product__button"
                         onClick={() => handleAddProduct(product.product.id)}
                     >
                         +
@@ -58,9 +66,16 @@ const Cart = () => {
     return (
         <div>
             <Navbar />
-            <h1>Cart</h1>
-            <h2>Total: ${totalCost}</h2>
-            {renderProducts()}
+            <div className="cart">
+                <div className="cart__container">
+                    <div className="cart__products">{renderProducts()}</div>
+                    <div className="cart__info">
+                        <h1 className="cart__header">Summary</h1>
+                        <h2 className="cart__total">Total: ${totalCost}</h2>
+                        <button className="cart__button">Go to payment</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
