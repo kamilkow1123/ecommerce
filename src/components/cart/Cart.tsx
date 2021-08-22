@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+//components
+import Navbar from "../navigation/Navbar";
 //action creators
 import { fetchCartProducts } from "../../state/actions/cart";
 //types
@@ -20,12 +22,15 @@ const Cart = () => {
         [ dispatch ]
     );
 
+    console.log(products);
+
     const renderProducts = () => {
-        return products.map(({ product }: { product: IProduct }) => {
+        return products.map(product => {
             return (
-                <div key={product.id}>
-                    <p>{product.product_name}</p>
-                    <p>{product.product_price}</p>
+                <div key={product.product.id}>
+                    <p>{product.product.product_name}</p>
+                    <p>{product.product.product_price}</p>
+                    <p>{product.quantity}</p>
                 </div>
             );
         });
@@ -33,6 +38,7 @@ const Cart = () => {
 
     return (
         <div>
+            <Navbar />
             <h1>Cart</h1>
             {renderProducts()}
         </div>
