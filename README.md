@@ -1,5 +1,4 @@
 # Ecommerce
-
 ## Description
 React/Redux ecommerce app. Using API built by [Artur Rejment](https://github.com/ArturRejment): [ecommerce-api](https://github.com/ArturRejment/ecommerce-api).
 
